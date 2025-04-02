@@ -1,0 +1,159 @@
+**Test Results**
+
+### Positive Test Cases
+
+#### Test Case 1: Successful Player Move
+
+* **Steps**
+  1. Send a POST request to the root URL with the row and column values set to `0` and `0` respectively.
+  2. Verify that the game board is updated correctly.
+  3. Verify that the current player is switched to the next player.
+* **Actual Result**
+  The game board is updated correctly with the player's symbol, and the current player is switched to the next player.
+* **Expected Result**
+  The game board should be updated correctly with the player's symbol, and the current player should be switched to the next player.
+* **Test Status**
+  **Passed**
+
+#### Test Case 2: Successful Game Board Display
+
+* **Steps**
+  1. Send a GET request to the root URL.
+  2. Verify that the game board is displayed correctly.
+* **Actual Result**
+  The game board is displayed correctly with the current state of the game.
+* **Expected Result**
+  The game board should be displayed correctly with the current state of the game.
+* **Test Status**
+  **Passed**
+
+#### Test Case 3: Successful Reset
+
+* **Steps**
+  1. Send a POST request to the reset URL.
+  2. Verify that the game board is reset correctly.
+  3. Verify that the current player is switched to the starting player.
+* **Actual Result**
+  The game board is reset correctly, and the current player is switched to the starting player.
+* **Expected Result**
+  The game board should be reset correctly, and the current player should be switched to the starting player.
+* **Test Status**
+  **Passed**
+
+#### Test Case 4: Successful Winner Detection
+
+* **Steps**
+  1. Update the game board to represent a winning state for player X.
+  2. Send a POST request to the root URL.
+  3. Verify that the winner is detected correctly.
+  4. Verify that the winner is displayed correctly on the winner page.
+* **Actual Result**
+  The winner is detected correctly, and the winner is displayed correctly on the winner page.
+* **Expected Result**
+  The winner should be detected correctly, and the winner should be displayed correctly on the winner page.
+* **Test Status**
+  **Passed**
+
+#### Test Case 5: Successful Draw Detection
+
+* **Steps**
+  1. Update the game board to represent a draw state.
+  2. Send a POST request to the root URL.
+  3. Verify that the draw is detected correctly.
+  4. Verify that the draw is displayed correctly on the draw page.
+* **Actual Result**
+  The draw is detected correctly, and the draw is displayed correctly on the draw page.
+* **Expected Result**
+  The draw should be detected correctly, and the draw should be displayed correctly on the draw page.
+* **Test Status**
+  **Passed**
+
+### Negative Test Cases
+
+#### Test Case 6: Invalid Row Value
+
+* **Steps**
+  1. Send a POST request to the root URL with an invalid row value (e.g., -1).
+  2. Verify that the request is handled correctly and the game board is not updated.
+* **Actual Result**
+  The request is handled correctly, but the game board is updated with invalid data.
+* **Expected Result**
+  The request should be handled correctly, and the game board should not be updated.
+* **Test Status**
+  **Failed**
+
+#### Test Case 7: Invalid Column Value
+
+* **Steps**
+  1. Send a POST request to the root URL with an invalid column value (e.g., 5).
+  2. Verify that the request is handled correctly and the game board is not updated.
+* **Actual Result**
+  The request is handled correctly, but the game board is updated with invalid data.
+* **Expected Result**
+  The request should be handled correctly, and the game board should not be updated.
+* **Test Status**
+  **Failed**
+
+#### Test Case 8: Duplicate Move
+
+* **Steps**
+  1. Send a POST request to the root URL with a valid row and column value.
+  2. Send another POST request to the root URL with the same row and column value.
+  3. Verify that the second request is handled correctly and the game board is not updated.
+* **Actual Result**
+  The second request is handled correctly, but the game board is updated with duplicate data.
+* **Expected Result**
+  The second request should be handled correctly, and the game board should not be updated.
+* **Test Status**
+  **Failed**
+
+### Edge Test Cases
+
+#### Test Case 9: Empty Game Board
+
+* **Steps**
+  1. Send a GET request to the root URL.
+  2. Verify that the game board is displayed correctly with empty cells.
+* **Actual Result**
+  The game board is displayed correctly with empty cells.
+* **Expected Result**
+  The game board should be displayed correctly with empty cells.
+* **Test Status**
+  **Passed**
+
+#### Test Case 10: Full Game Board
+
+* **Steps**
+  1. Update the game board to represent a full state (i.e., all cells are filled).
+  2. Send a POST request to the root URL.
+  3. Verify that the draw is detected correctly.
+* **Actual Result**
+  The draw is detected correctly.
+* **Expected Result**
+  The draw should be detected correctly.
+* **Test Status**
+  **Passed**
+
+#### Test Case 11: Invalid Request Method
+
+* **Steps**
+  1. Send a request to the root URL with an invalid method (e.g., PUT).
+  2. Verify that the request is handled correctly.
+* **Actual Result**
+  The request is handled correctly, but the game board is updated with invalid data.
+* **Expected Result**
+  The request should be handled correctly, and an error should be displayed to the user.
+* **Test Status**
+  **Failed**
+
+#### Test Case 12: Invalid Request Data
+
+* **Steps**
+  1. Send a POST request to the root URL with invalid request data (e.g., invalid row or column values).
+  2. Verify that the request is handled correctly.
+* **Actual Result**
+  The request is handled correctly, but the game board is updated with invalid data.
+* **Expected Result**
+  The request should be handled correctly, and an error should be displayed to the user.
+* **Test Status**
+  **Failed**
